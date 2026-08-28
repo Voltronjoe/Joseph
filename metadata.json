@@ -1,0 +1,6 @@
+{
+  "name": "NaijaMind AI",
+  "description": "Ask Nigeria anything. An AI that deeply understands Nigerian English, culture, geography, and everyday life.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
