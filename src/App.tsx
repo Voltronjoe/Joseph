@@ -1,8 +1,7 @@
 /// <reference types="vite/client" />
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { GoogleOAuthProvider } from "@react-oauth/google";
-import { AnimatePresence } from "framer-motion";
 import { Shell } from "./components/layout/Shell";
 import { AdminShell } from "./components/layout/AdminShell";
 import { Home } from "./pages/Home";
@@ -16,12 +15,10 @@ import { Login } from "./pages/Login";
 import { Signup } from "./pages/Signup";
 import { AdminLogin } from "./pages/AdminLogin";
 import { AdminDashboard } from "./pages/admin/Dashboard";
-import { SplashScreen } from "./components/SplashScreen";
 import { useAppStore } from "./store/store";
 
 function App() {
   const { isDarkMode } = useAppStore();
-  const [showSplash, setShowSplash] = useState(true);
 
   useEffect(() => {
     if (isDarkMode) {
@@ -37,9 +34,6 @@ function App() {
   return (
     <GoogleOAuthProvider clientId={clientId}>
       <div className={isDarkMode ? "dark" : ""}>
-        <AnimatePresence>
-          {showSplash && <SplashScreen onComplete={() => setShowSplash(false)} />}
-        </AnimatePresence>
         <BrowserRouter>
           <Routes>
             {/* Public Routes */}
